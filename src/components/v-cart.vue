@@ -6,9 +6,7 @@
 
 <script>
     export default {
-        name: "v-cart",
-        data() {
-        }
+        name: "v-cart"
     }
 </script>
 

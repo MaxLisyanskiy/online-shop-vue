@@ -13,8 +13,6 @@
         name: "v-main-wrapper",
         components: {
           vCatalog, vCart
-        },
-        data() {
         }
     }
 </script>
