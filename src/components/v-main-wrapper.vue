@@ -1,13 +1,24 @@
 <template>
-    <div>
-        
+    <div class="v-main-wrapper">
+        <v-catalog/>
+        <v-cart/>
     </div>
 </template>
+
 <script>
-export default {
-    
-}
+    import vCatalog from './v-catalog';
+    import vCart from './v-cart'
+
+    export default {
+        name: "v-main-wrapper",
+        components: {
+          vCatalog, vCart
+        },
+        data() {
+        }
+    }
 </script>
-<style>
-    
+
+<style lang="scss">
+
 </style>

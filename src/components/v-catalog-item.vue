@@ -1,12 +1,12 @@
 <template>
-    <div class="v-cart">
-
+    <div class="v-catalog-item">
+        <p>Catalog Item</p>
     </div>
 </template>
 
 <script>
     export default {
-        name: "v-cart",
+        name: "v-catalog-item",
         data() {
         }
     }
