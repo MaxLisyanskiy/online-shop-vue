@@ -3,7 +3,7 @@
         <h1>Catalog</h1>
         <div class="catalog-wrapp">
             <v-catalog-item
-                v-for="product in products" :key="product.article"
+                v-for="product in PRODUCTS" :key="product.article"
                 :product_data="product"
                 @articleFromChild="showChildArticle"
             />
@@ -13,6 +13,7 @@
 
 <script>
     import vCatalogItem from './v-catalog-item';
+    import {mapActions, mapGetters} from 'vuex'
 
     export default {
         name: "v-catalog",
@@ -21,38 +22,28 @@
         },
         data() {
             return {
-                products: [
-                    {
-                        image: "1.jpg",
-                        name: "T-shirt 1",
-                        price: 2100.234234234,
-                        article: "T1",
-                        available: true,
-                        category: "Мужские"
-                    },
-                    {
-                        image: "2.jpg",
-                        name: "T-shirt 2",
-                        price: 3150.12312412,
-                        article: "T2",
-                        available: true,
-                        category: "Женские"
-                    },
-                    {
-                        image: "3.jpg",
-                        name: "T-shirt 3",
-                        price: 4200.51524,
-                        article: "T3",
-                        available: false,
-                        category: "Женские"
-                    }
-                ]
             }
         },
+        computed: {
+            ...mapGetters([
+                'PRODUCTS'
+            ])
+        },
         methods: {
+            ...mapActions([
+                'GET_PRODUCTS_FROM_API'
+            ]),
             showChildArticle(data) {
                 console.log(data);
             }
+        },
+        mounted() {
+            this.GET_PRODUCTS_FROM_API()
+            .then((response) => {
+                if(response.data) {
+                    console.log('data arrived');
+                }
+            })
         }
     }
 </script>
@@ -60,6 +51,7 @@
 <style lang="scss">
     .catalog-wrapp{
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
     }
 </style>
