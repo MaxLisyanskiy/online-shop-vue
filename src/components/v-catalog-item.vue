@@ -4,7 +4,7 @@
              :alt="product_data.article">
         <h2>{{product_data.name}}</h2>
         <div>Price: {{product_data.price}}₽</div>
-        <button @click="addToParent(product_data.article)">Add to cart</button>
+        <button @click="addToCart">Add to cart</button>
     </div>
 </template>
 
@@ -20,8 +20,8 @@
             }
         },
         methods: {
-            addToParent(data) {
-                this.$emit('articleFromChild', data)
+            addToCart() {
+                this.$emit('addToCart', this.product_data)
             }
         }
     }
