@@ -1,6 +1,10 @@
 <template>
     <div class="v-cart">
+        <router-link :to="{name: 'Catalog'}">
+            <div class="link-to-catalog">Back to catalog</div>
+        </router-link>
         <h2>Cart</h2>
+        <h3 v-if='!cart_data.length'>There are no product in cart...</h3>
         <v-cart-item 
             v-for="(item, index) in cart_data"
             :key="item.article"
@@ -39,5 +43,8 @@ import {mapActions} from 'vuex'
 </script>
 
 <style lang="scss">
-
+    .link-to-catalog {
+        position: absolute;
+        right: 0;
+    }
 </style>

@@ -1,5 +1,8 @@
 <template>
     <div class="v-catalog">
+        <router-link :to="{name: 'Cart', params: {cart_data: CART}}">
+            <div class="link-to-cart">Cart: {{CART.length}}</div>
+        </router-link>
         <h1>Catalog</h1>
         <div class="catalog-wrapp">
             <v-catalog-item
@@ -26,7 +29,8 @@
         },
         computed: {
             ...mapGetters([
-                'PRODUCTS'
+                'PRODUCTS',
+                'CART'
             ])
         },
         methods: {
@@ -54,5 +58,9 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+    }
+    .link-to-cart{
+        position: absolute;
+        right: 0;
     }
 </style>
