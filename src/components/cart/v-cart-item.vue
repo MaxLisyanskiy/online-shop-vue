@@ -1,6 +1,6 @@
 <template>
     <div class="v-cart-item">
-        <img :src="require('../assets/images/' + cart_item_data.image)"
+        <img :src="require('../../assets/images/' + cart_item_data.image)"
              :alt="cart_item_data.article">
         <h2>{{cart_item_data.name}}</h2>
         <div class="v-cart-item-price">{{cart_item_data.price}}₽</div>
@@ -49,9 +49,6 @@ export default {
         deleteFromCart() {
             this.$emit('deleteFromCart')
         }
-    },
-    mounted() {
-        this.$set(this.cart_item_data, 'quantity', 1)
     }
 }
 </script>

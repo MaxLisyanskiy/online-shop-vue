@@ -1,6 +1,6 @@
 <template>
     <div class="v-catalog-item">
-        <img :src="require('../assets/images/' + product_data.image)"
+        <img :src="require('../../assets/images/' + product_data.image)"
              :alt="product_data.article">
         <h2>{{product_data.name}}</h2>
         <div class="v-catalog-item-price">{{product_data.price}}₽</div>
@@ -23,6 +23,9 @@
             addToCart() {
                 this.$emit('addToCart', this.product_data)
             }
+        },
+        mounted() {
+            this.$set(this.product_data, 'quantity', 1)
         }
     }
 </script>
